@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">S</div>
+            <div><strong>StudentHub</strong><small>Student Portal</small></div>
+        </div>
+
+        <div class="nav-label">MENU</div>
+        <button class="nav active" data-page="dashboard">▦ Dashboard</button>
+        <button class="nav" data-page="students">♙ Students</button>
+        <button class="nav" data-page="add">＋ Add Student</button>
+        <button class="nav" data-page="cards">▣ ID Cards</button>
+
+        <div class="side-bottom">
+            <span>StudentHub</span>
+            <small>Student Management</small>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div>
+                <h1 id="heading">Dashboard</h1>
+                <p id="subheading">Manage your student records</p>
+            </div>
+            <button class="btn primary" id="topAdd">+ Add Student</button>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page">
+            <div class="welcome">
+                <div>
+                    <span class="eyebrow">STUDENT MANAGEMENT SYSTEM</span>
+                    <h2>Welcome to StudentHub 👋</h2>
+                    <p>Manage profiles, student records and identity cards.</p>
+                    <button class="btn light" id="welcomeAdd">+ Register Student</button>
+                </div>
+                <div class="welcome-art">🎓</div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">Total Students <span>♙</span></div>
+                    <h2 id="countStudents">0</h2>
+                    <p>Registered profiles</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">ID Cards <span>▣</span></div>
+                    <h2 id="countCards">0</h2>
+                    <p>Generated cards</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Departments <span>⌘</span></div>
+                    <h2 id="countDepartments">0</h2>
+                    <p>Departments represented</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">
+                    <div>
+                        <h2>Recently Added</h2>
+                        <p>Latest student registrations</p>
+                    </div>
+                    <button class="btn outline" data-go="students">View All</button>
+                </div>
+                <div id="recent" class="student-grid"></div>
+            </div>
+        </section>
+
+        <!-- STUDENTS -->
+        <section id="students" class="page hidden">
+            <div class="panel">
+                <div class="panel-title">
+                    <div>
+                        <h2>Student Directory</h2>
+                        <p>Browse and manage registered students</p>
+                    </div>
+                </div>
+                <input id="search" class="search" placeholder="Search name, roll number or department...">
+                <div id="studentList" class="student-grid"></div>
+            </div>
+        </section>
+
+        <!-- ADD -->
+        <section id="add" class="page hidden">
+            <div class="panel">
+                <div class="panel-title">
+                    <div>
+                        <h2>Student Registration</h2>
+                        <p>Enter student details to create an ID card</p>
+                    </div>
+                </div>
+
+                <form id="form">
+                    <div class="form-grid">
+                        <div>
+                            <label for="name">Full Name *</label>
+                            <input id="name" required placeholder="Student name">
+                        </div>
+                        <div>
+                            <label for="roll">Roll Number *</label>
+                            <input id="roll" required placeholder="Roll number">
+                        </div>
+                        <div>
+                            <label for="dept">Department</label>
+                            <input id="dept" placeholder="Department">
+                        </div>
+                        <div>
+                            <label for="year">Academic Year</label>
+                            <input id="year" placeholder="Example: 2nd Year">
+                        </div>
+                        <div class="full">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" placeholder="Student email">
+                        </div>
+                        <div class="full">
+                            <label for="photo">Student Photo</label>
+                            <input id="photo" type="file" accept="image/*">
+                            <img id="preview" class="preview hidden" alt="Photo preview">
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="btn primary" type="submit">Create Student ID</button>
+                        <button class="btn outline" type="reset" id="clear">Clear</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- CARDS -->
+        <section id="cards" class="page hidden">
+            <div class="panel">
+                <div class="panel-title">
+                    <div>
+                        <h2>Student ID Cards</h2>
+                        <p>All generated student identity cards</p>
+                    </div>
+                </div>
+                <div id="cardList" class="student-grid"></div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
